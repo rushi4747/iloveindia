@@ -1,0 +1,36 @@
+{% extends 'editorsite/editorbasic.html' %}
+
+{% block title %} ILoveIndia Editor {% endblock %}
+
+{% block body %}
+{% load static %}
+<h1>hello Editor</h1>
+
+
+
+<!--code for show success message-->
+{% if messages %}
+<script>
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+{% for message in messages %}
+{% if message.tags %}
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body" style="color: black;">
+          <h2 style="color:rgb(0, 112, 0);">{{ request.session.adusername }} {{ message }} <i class="fas fa-check h2" style="color:rgb(0, 112, 0);"></i></h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endif %}
+{% endfor %}
+{% endif %}<!--end code for success message-->
+{% endblock %}

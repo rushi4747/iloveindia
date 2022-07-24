@@ -1,0 +1,122 @@
+{% extends 'adminsite/adminbasic.html' %}
+
+{% block title %} ILoveIndia Add Approvel {% endblock %}
+
+{% block body %}
+{% load static %}
+<!--code for show success message-->
+{% if messages %}
+<script>
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+{% for message in messages %}
+{% if message.tags %}
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body" style="color: black;">
+          <h2 style="color:rgb(0, 112, 0);">{{ request.session.adusername }} {{ message }} <i class="fas fa-check h2" style="color:rgb(0, 112, 0);"></i></h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endif %}
+{% endfor %}
+{% endif %}<!--end code for success message-->
+
+<div class="container">
+  <div class="row bg-light">
+      <div id="row mb-4">
+          <h1 style="padding-left:50px; color:black;">Advertisement Approvel</h1>
+      </div>
+      <br>
+  </div>
+  <br>
+  <div class="bg-light">
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+              <div class="card"><!--manage feedback container-->
+                  <div class="card-body" style="color:black;">
+                    <div class="site-section bg-light">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Advertisement Header</th>
+                          <th scope="col">View</th>
+                          <th scope="col">Approve</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Hello Sir your site content all type of information i like your website</td>
+                          <td><i class="fas fa-eye" data-toggle="modal" data-target="#myModal"></i></td>
+                          <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>hello sir i like your information section add more information into that</td>
+                          <td><i class="fas fa-eye" data-toggle="modal" data-target="#myModal"></i></td>
+                          <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>change your site interface i dont like that</td>
+                          <td><i class="fas fa-eye" data-toggle="modal" data-target="#myModal"></i></td>
+                          <td><i class="fas fa-check"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div><!--manage news end-->
+                  </div>
+              </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<!-- modal for replay to Editor -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" style="color:black;">
+        <div class="modal-header">
+            <h4 class="modal-title">Advertisement</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+             <!--ad content-->
+    <div class="py-0">
+        <div class="container">
+          <div class="half-post-entry d-block d-lg-flex bg-light">
+            <div class="img-bg" style="background-image: url('/media/usersite/adimg/entertaiment-04.jpg')"></div>
+            <div class="contents">
+              <span class="caption">Advertisement</span>
+              <h2><a href="blog-single.html">sale Sale Sale!!! Trends market sale.....</a></h2>
+              <p class="mb-3">Each product have 50% discount on date 5-march-2020 to month end</p>
+              
+              <div class="post-meta">
+                <span class="d-block">8999899955</span>
+                <span class="date-read">trends@gmail.com <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div><!--ad content end-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"><i class="fas fa-check" style="color: white;">approve</i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

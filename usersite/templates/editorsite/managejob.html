@@ -1,0 +1,170 @@
+{% extends 'editorsite/editorbasic.html' %}
+
+{% block title %} ILoveIndia Manage Job {% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+    <div class="row bg-light">
+        <div id="row mb-4">
+            <h1 style="padding-left:50px; color:black;">Job Information Management</h1>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div class="bg-light">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <button class="btn btn-secondary ml-3 mt-2" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Upload Job
+            </button>
+            <button class="btn btn-secondary ml-3 mt-2 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Manage Job
+            </button>
+            <div id="accordion" class="mt-3">
+              <div class="card"><!--upload job container-->
+                {% if show %}
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  {% else %}
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  {% endif %}
+                  <div class="card-body" style="color:black;">
+                    <div class="site-section bg-light">
+                      <div class="container">
+                        <div class="row">
+                        <div class="col-lg-12">
+                          <form method="post" action="managejob" class="form-section d-inline-block was-validated">{% csrf_token %}
+                          
+                          <div class="row" style="margin-top:-35px ;">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">Company Name :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="text" name="cname" id="cname" title="only leters are allowd" class="form-control form-control-lg" required>
+                            </div>
+                          </div>
+                          <div class="row mt-1">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">Date :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="date" name="cdate" class="form-control form-control-lg" title="select date" required>
+                            </div>
+                          </div>
+                          
+                              <div class="row mt-1">
+                                    <div class="col-md-5 form-group">
+                                      <label for="fname" class="h5">Job Discription :<label>
+                                    </div>
+                                    <div class="col-md-5 form-group">
+                                        <textarea name="cdisc" id="disc" cols="30" rows="10" class="form-control" style="height:100px; width:400px;color: blue;" required></textarea>
+                                    </div>
+                              </div>
+
+                              <div class="row mt-1">
+                                <div class="col-md-5 form-group">
+                                  <label for="fname" class="h5">Company_Email :<label>
+                                </div>
+                                <div class="col-md-5 form-group">
+                                  <input type="email" name="cemail" class="form-control form-control-lg" title="enter proper email id" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" required>
+                                </div>
+                              </div>
+
+                              <div class="row mt-1">
+                                <div class="col-md-5 form-group">
+                                  <label for="fname" class="h5">Mobile No :<label>
+                                </div>
+                                <div class="col-md-5 form-group">
+                                  <input type="text" name="cmob" class="form-control form-control-lg" title="enter 10 digit mobile no" pattern="(0/91)?[7-9][0-9]{9}" required>
+                                </div>
+                              </div>
+
+                              <div class="row mt-1">
+                                <div class="col-md-5 form-group">
+                                  <label for="fname" class="h5">Link :<label>
+                                </div>
+                                <div class="col-md-5 form-group">
+                                  <input type="text" name="clink" class="form-control form-control-lg" title="Enter link of job" required>
+                                </div>
+                              </div>
+
+                          
+                              <div class="row">
+                                      <div class="col-12">
+                                          <input type="submit" name="user" value="Upload" class="btn btn-primary py-3 px-5">
+                                      </div>
+                              </div>
+                            </form>
+                          </div>
+                          </div>
+                          </div>
+                          </div><!--upload news end-->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card"><!--manage job container-->
+                  <div id="collapseTwo" class="collapse {% if show %}{{show}}{% endif %}" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body" style="color:black;">
+                      <div class="site-section bg-light">
+                        <div class="container" style="margin-top:-35px;">
+                          <div class="row">
+                          <div class="col-lg-12">
+                          <form method="post" action="managejob" class="form-section d-inline-block was-validated">{% csrf_token %}
+                            <div class="row" style="color: black;">
+                              <div class="col-md-6 form-group">
+                                  <label for="sdate" class="h5">Start Date</label>
+                                  <input type="date" id="sdate" name="sdate"  class="form-control form-control-lg" required>
+                              </div>
+                              <div class="col-md-6 form-group">
+                              
+                                  <label for="edate" class="h5">End Date</label>
+                                  <input type="date" id="edate" name="edate" class="form-control form-control-lg" required>
+                              </div>
+                              <div class="col-md-6 form-group">
+                                <div class="col-12">
+                                    <input type="submit" name="user" value="Search" class="btn btn-primary py-3 px-5">
+                                </div>
+                              </div>
+                          </div>
+                          </form>
+                          </div>
+                          </div>
+                          </div>
+
+                          <table class="table mt-3">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Job Discription</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for i in sresult %}
+                              <tr>
+                                <th scope="row">{{0}}{{forloop.counter}}</th>
+                                <td>{{i.Company_Name}}</td>
+                                <td>{{i.Job_Disc|slice:100}}</td>
+                                <td>{{i.Date}}</td>
+                                <td><a href="editjob"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="deletejob{{i.id}}"><i class="fas fa-trash"></i></a></td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                          </div><!--manage news end-->
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

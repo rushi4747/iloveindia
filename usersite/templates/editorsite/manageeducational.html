@@ -1,0 +1,133 @@
+{% extends 'editorsite/editorbasic.html' %}
+
+{% block title %} ILoveIndia Manage Educational Information {% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+    <div class="row bg-light">
+        <div id="row mb-4">
+            <h1 style="padding-left:50px; color:black;">Educational Information Management <i class="fas fa-book"  style="color:black; font-size:30px;"></i></h1>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div class="bg-light">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <button class="btn btn-secondary ml-3 mt-2" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Upload Educational Information
+            </button>
+            <button class="btn btn-secondary ml-3 mt-2 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Manage Educational Information
+            </button>
+            <div id="accordion" class="mt-3">
+              <div class="card"><!--upload news container-->
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body" style="color:black;">
+                    <div class="site-section bg-light">
+                      <div class="container">
+                        <div class="row">
+                        <div class="col-lg-12">
+                          <form method="post" action="manageeducational" class="form-section d-inline-block was-validated">{% csrf_token %}
+                          
+                          <div class="row" style="margin-top:-35px ;">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">Header :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="text" name="cpassword" id="lname" class="form-control form-control-lg">
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">Keyword :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="text" name="keyword" class="form-control form-control-lg" title="Enter keyword related to the information">
+                            </div>
+                          </div>
+                          <div class="row mt-1">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">Image :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="file" name="img" class="form-control form-control-lg" title="select image for news">
+                            </div>
+                          </div>
+                          <div class="row mt-1">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">Discription :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                                <textarea name="" id="disc" cols="30" rows="10" class="form-control" style="height:100px; width:400px;color: blue;"></textarea>
+                            </div>
+                          </div>
+                              <div class="row">
+                                      <div class="col-12">
+                                          <input type="submit" name="user" value="Upload" class="btn btn-primary py-3 px-5">
+                                      </div>
+                              </div>
+                            </form>
+                          </div>
+                          </div>
+                          </div>
+                          </div><!--upload news end-->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card"><!--manage news container-->
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body" style="color:black;">
+                      <div class="site-section bg-light">
+                      <div class="container" style="margin-top:-35px;">
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <form method="post" class="form-section d-inline-block was-validated">
+                                <div class="row" style="color: black;">
+                                    <div class="col-md-12 form-group">
+                                        <label for="fname" class="h5">Enter Keyword</label>
+                                        <input type="text" id="fname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                      <div class="col-12">
+                                          <input type="submit" name="user" value="Search" class="btn btn-primary py-3 px-5">
+                                      </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                      </div>
+
+                      <table class="table mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Header</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Apple Crumble Recipe</td>
+                            <td><i class="fas fa-edit"></i></td>
+                            <td><i class="fas fa-trash"></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                          </div><!--manage news end-->
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

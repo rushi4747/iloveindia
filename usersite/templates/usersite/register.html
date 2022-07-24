@@ -1,0 +1,355 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} Registration {% endblock %}
+
+{% block body %}
+
+<!--code for print success message-->
+{% if messages %}
+{% for message in messages %}
+{% if message.tags %}  <script>alert("{{ request.session.Username }} {{ message }}")</script> {% endif %}
+
+{% endfor %}
+{% endif %}<!--end code for success message-->
+
+<!--main-->
+{% load static %}
+<!--start registration div-->
+<div class="container">
+  <div class="row bg-light">
+      <div id="row mb-4">
+          <h1 style="padding-left:50px">User Registration</h1>
+      </div>
+      <br>
+    </div>
+    <br>
+
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-secondary ml-3 mt-1" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Register As User
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <!--user registration-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="registeruser" class="form-section d-inline-block was-validated">   {% csrf_token %}                                                                                                                                                                                                                                                                                                                            
+                    <div class="row" style="margin-top:-35px ;">
+                        <div class="col-md-5 form-group">
+                          <label for="fname" class="h5">Name :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                          <input type="text" name="name" id="lname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+                        </div>
+                    </div>
+            
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Surname :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="surname" id="lname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Age :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="age" id="lname" class="form-control form-control-lg" pattern="[1-9]{2}" title="Enter Age!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Gender :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="gender" id="lname" class="form-control form-control-lg" pattern="[A-Za-z]{4-6}" title="only letters are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Mobile :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="mobile" id="lname" class="form-control form-control-lg" pattern="(0/91)?[7-9][0-9]{9}" title="only 10 Digits are allowed !!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Email :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="email" id="lname" class="form-control form-control-lg" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="only Email are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Username :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="username" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9_.-]+$" title="Enter valid Username!!!" required>
+                      </div>
+                  </div>
+            
+            
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="password" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" title="password must contain at least one letter, one number,and be longer than 6 char!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Confirm password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="cpassword" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" title="password must contain at least one letter, one number,and be longer than 6 char!!" required>
+                      </div>
+                  </div>
+            
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="user" value="Register" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+                
+              </form>
+            </div>
+            </div>
+            </div>
+            </div><!--user registration end-->
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-secondary ml-3 mt-1 collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Register As Customer
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            <!--Customer registration-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="registercust" class="form-section d-inline-block was-validated">   {% csrf_token %}                                                                                                                                                                                                                                                                                                                            
+                    <div class="row" style="margin-top:-35px ;">
+                        <div class="col-md-5 form-group">
+                          <label for="cname" class="h5">Business Name :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                          <input type="text" name="bname" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9](\w+)*{2,10}" title="only letters are allowed" required>
+                        </div>
+                    </div>
+            
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="address" class="h5">Address :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="address" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9](\w+)*{2,20}" title="only letters are allowed" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="onername" class="h5">Customer Name :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="cname" id="lname" class="form-control form-control-lg" pattern="[a-zA-z]+ [a-z-A-z]+" title="Enter Age!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Mobile :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="mobile" id="lname" class="form-control form-control-lg" pattern="(0/91)?[7-9][0-9]{9}" title="only Digits are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Email :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="email" id="lname" class="form-control form-control-lg" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="only Email are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Username :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="username" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9_.-]+$" title="Enter valid Username!!!" required>
+                      </div>
+                  </div>
+                  
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="password" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" title="password must contain at least one letter, one number,and be longer than 6 char!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Confirm password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="cpassword" id="lname" class="form-control form-control-lg">
+                      </div>
+                  </div>
+            
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="cust" value="Register" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+              </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            <!--Customer registration end-->
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-secondary ml-3 mt-1 collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Register As Organization
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <!--Organization registration-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="registerorg" class="form-section d-inline-block was-validated">   {% csrf_token %}                                                                                                                                                                                                                                                                                                                            
+                    <div class="row" style="margin-top:-35px ;">
+                        <div class="col-md-5 form-group">
+                          <label for="cname" class="h5">Company Name :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                          <input type="text" name="cname" id="lname" class="form-control form-control-lg" pattern="[a-zA-Z0-9](\w+)*{2,20}" title="only one space & charector allowed" required>
+                        </div>
+                    </div>
+            
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="address" class="h5">Address :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="address" id="lname" class="form-control form-control-lg" pattern="[a-zA-Z0-9](\w+)*{2,20}" title="only letters are allowed" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="onername" class="h5">Owner Name :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="onername" id="lname" class="form-control form-control-lg" pattern="[a-zA-Z]+ [a-zA-Z]+" title="Name and Surname" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Mobile :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="mobile" id="lname" class="form-control form-control-lg" pattern="(0/91)?[7-9][0-9]{9}" title="only 10 Digits are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Email :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="email" id="lname" class="form-control form-control-lg" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="only Email are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Username :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="username" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9_.-]+$" title="Enter valid Username!!!" required>
+                      </div>
+                  </div>
+                  
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="password" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" title="password must contain at least one letter, one number,and be longer than 6 char!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Confirm password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="cpassword" id="lname" class="form-control form-control-lg">
+                      </div>
+                  </div>
+            
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="org"value="Register" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+                
+              </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            <!--Organization registration end-->
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--end registration div-->
+<script>
+
+</script>
+ {% endblock %}

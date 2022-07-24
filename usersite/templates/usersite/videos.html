@@ -1,0 +1,91 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia Videos {% endblock %}
+
+{% block body %}
+
+<!--videos content-->
+{% load static %}
+  <div class="container">
+  <div class="row bg-light">
+      <div id="row mb-4">
+          <h1 style="padding-left:50px;">Videos :</h1>
+      </div>
+    </div>
+    {% load static %}
+    <div class="site-section" style="margin-top: -50px;">
+        <div class="container">
+          <div class="mb-4">
+          <form action="#" class="search-form d-inline-block">
+    
+            <div class="d-flex">
+              <input type="Text" class="form-control" style="width: 300px;" placeholder="Enter Keyword...">
+              <button type="submit" class="btn btn-secondary" ><i class="fas fa-search" style="font-size:22px;"></i></button>
+            </div>
+          </form>
+        </div>
+          <div class="row ml-2">
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="width: 18rem;">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/c8UUWkUJu6E" allowfullscreen></iframe>
+                <div class="card-body">
+                  <p class="card-text section-title">US (Official Video) Sidhu Moose Wala | Raja Kumari | The Kidd | Sukh Sanghera | Moosetape ★.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="width: 18rem;">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gWqyivbQM50" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <p class="card-text section-title">Mera Dil Bhi Kitna Pagal - Kumar Sanu & Alka Yagnik -Live in Concert, Dubai.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text section-title">360° Underwater National Park | National Geographic.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/sy0T-M-4too" allowfullscreen></iframe>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text section-title">Indian Elections - Stand-up Comedy by Varun Grover.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/EuvwuOhsC_M" allowfullscreen></iframe>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text section-title">#ShaanLiveInConert2018 Shaan Mesmerized NJ Crowd.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="custom-pagination list-unstyled">
+                <li><a href="#">1</a></li>
+                <li class="text-danger h5 active ">2</li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--end videos content-->
+  {% endblock %}

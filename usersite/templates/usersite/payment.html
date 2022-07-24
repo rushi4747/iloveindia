@@ -1,0 +1,123 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} Payment {% endblock %}
+
+{% block body %}
+<!--main-->
+{% load static %}
+<div class="container">
+    <div class="row bg-light">
+        <div id="row mb-4">
+            <h1 style="padding-left:50px">Payment :</h1>
+        </div>
+        <br>
+      </div>
+      <br>
+      <div class="alert alert-success" role="alert">
+        Dear customer Enter your Payment Details!!!
+      </div>
+    <div class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="shadow-sm p-3 mt-2 mb-5 bg-white rounded">
+                <div class="row">
+                    <div class="col-md-8 form-group">
+                        <label class="h4" style="color:black;">Customer Id :</label>
+                        <label class="h5">{{ request.session.id }}</label>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="h4" style="color:black;">Date :</label>
+                        <label class="h5">{% now "SHORT_DATE_FORMAT" %}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 form-group">
+                        <label class="h4" style="color:black;">Customer Name :</label>
+                        <label class="h5">{{ request.session.Username }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 form-group">
+                        <label class="h4" style="color:black;">Advertisement Duration :</label>
+                        <label class="h5">{{ request.session.adweek }} week</label>
+                    </div>
+                    <div class="col-md-4 form-group bg-light" style="border: 2px solid black;">
+                        <label class="h4" style="color:black;">Amount :</label>
+                        <label class="h5"> {{ request.session.adamt }}/-</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shadow-sm p-3 mt-2 mb-5 bg-white rounded">
+                <div class="row">
+                    <div class="col-md-12 form-group bg-light">
+                        <label class="h4" style="color:black;">Select Payment Mode :</label>
+                    </div>
+                </div>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="col-md-12 form-group bg-light">
+                       <hr style="border: 1px solid green;">
+                       <button class="btn btn-secondary ml-3 mt-1 collapsed" data-toggle="collapse" href="#debitcard" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Dabit Card
+                      </button>
+                      <button class="btn btn-secondary ml-3 mt-1 collapsed" data-toggle="collapse" href="#netbanking" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Net Banking
+                      </button>
+                       <hr style="border: 1px solid green;">
+                    </div>
+                    <div class="collapse" id="debitcard" data-parent="#accordionExample">
+                        <div class="card card-body">
+                            <form method="post" action="" class="form-section d-inline-block was-validated">
+                            <div class="row">
+                                <div class="col-md-5 form-group">
+                                    <label class="h4" style="color:black;">Card Holder Name :</label>
+                                </div>
+                                <div class="col-md-6 form-group ">
+                                    <input type="text" name="cname" class="form-control form-control-lg" pattern="[A-Za-z ]{2,32}" title="only letters are allowed" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-group">
+                                    <label class="h4" style="color:black;">Card Number :</label>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="cno" class="form-control form-control-lg" pattern="[0-9]{4} [0-9 ]{4} [0-9]{4} [0-9]{4}" title="only 16 dight allowed" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-group">
+                                    <label class="h4" style="color:black;">CVV :</label>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="cno" class="form-control" pattern="[0-9]{3}" title="only 3 dight allowed" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-group">
+                                    
+                                </div>
+                                <div class="col-md-6 form-group bg-light">
+                                    <button class="btn btn-secondary ml-3 mt-1">payment</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                      </div>
+
+                      <div class="collapse" id="netbanking" data-parent="#accordionExample">
+                        <div class="card card-body">
+                          net banking not allowed now
+                        </div>
+                      </div>
+                    </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+<!--end main-->

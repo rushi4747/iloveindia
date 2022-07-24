@@ -1,0 +1,96 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} Give Advertisement {% endblock %}
+
+{% block body %}
+<!--main-->
+{% load static %}
+<div class="container">
+  <div class="row bg-light">
+    <div id="row mb-4">
+      <h1 style="padding-left:50px">Advertisement</h1>
+    </div><br>
+  </div>
+      <br>
+  <div class="alert alert-success" role="alert">
+    Dear customer you can give us paid advertisement!!!
+  </div>
+  <div class="bg-light">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <form method="post" action="payment" class="form-section d-inline-block was-validated">{% csrf_token %}
+          <div class="row mt-3">
+              <div class="col-md-5 form-group">
+                <label for="name" class="h5">Enter Heading :<label>
+              </div>
+              <div class="col-md-5 form-group">
+                <input type="text" id="name" name="name" class="form-control form-control-lg" required>
+              </div>
+          </div>
+
+          <div class="row mt-1">
+            <div class="col-md-5 form-group">
+              <label for="fname" class="h5">Select Image :<label>
+            </div>
+            <div class="col-md-5 form-group">
+              <input type="file" id="img" name="img" class="form-control form-control-lg" required>
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md-5 form-group">
+              <label for="fname" class="h5">Description :<label>   
+            </div>
+            <div class="col-md-5 form-group">
+            <textarea name="desc" id="desc" name="disc" class="" required></textarea>
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md-5 form-group">
+              <label for="fname" class="h5">Mobile :<label>
+            </div>
+            <div class="col-md-5 form-group">
+              <input type="text" id="lname" name="mobile" class="form-control form-control-lg" required pattern="(0/91)?[7-9][0-9]{9}">
+            </div>
+
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md-5 form-group">
+              <label for="fname" class="h5">Email ID :<label>
+            </div>
+            <div class="col-md-5 form-group">
+              <input type="text" id="lname" name="emailid" class="form-control form-control-lg" required pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)">
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md-5 form-group">
+              <label for="fname" class="h5">Select Duration :<label>
+            </div>
+            <div class="col-md-5 form-group">
+              <select class="custom-select form-control form-control-lg" name="week" required>
+                <option selected disabled>Select Duration:</option>
+                <option value="1">1 week</option>
+                <option value="2">2 week</option>
+                <option value="3">3 week</option>
+                <option value="4">4 week</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12">
+            <input type="submit" value="Proceed" class="btn btn-primary py-3 px-5">
+          </div>
+        </div>
+    </form>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+<!--end main-->

@@ -1,0 +1,33 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia AboutUs {% endblock %}
+
+{% block body %}
+
+<!--main-->
+{% load static %}
+  <div class="container">
+  <div class="row bg-light">
+      <div id="row mb-4">
+          <h1 style="padding-left:50px;">About Us</h1>
+      </div>
+      <br>
+    </div>
+    <br>
+      <div class="card mb-3">
+        <img src="{%static 'imgs/ILoveIndia.jpg'%}" class="card-img-top" alt="..." style="max-height:300px;">
+        <div class="card-body">
+          <h4 class="card-title">ILoveIndia The Digital Magazine</h4>
+          <p class="card-text">The “IloveIndia Digital Magazine Website” is for uploading the News, Information, Entertainment, Blogs Platform online. It’s the web application that contains the daily news and information updates. 
+            This website can also get WhatsApp number of users for the join to the WhatsApp and get daily updates. 
+            User can also upload the information’s, and blog on website with the admin approval. User also gives the rating and feedback to the blogs, videos, information etc. this website also give the paid advertisement service. On this web site organizations can upload job information on job portal, customer can give advertisement to the website.
+            </p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="contatner">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15103.177721325603!2d74.8616672231065!3d18.851806092642143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc353ff1ea5e9cd%3A0x1c460683dd70069a!2sBanpimpri%2C%20Maharashtra%20414101!5e0!3m2!1sen!2sin!4v1658321194163!5m2!1sen!2sin" width="800px" height="450px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  <!--end main-->
+  {% endblock %}

@@ -1,0 +1,197 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia Place Informations {% endblock %}
+
+{% block body %}
+{% load static %}
+<!--News details information container-->
+
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 single-content">
+          
+          <p class="mb-5">
+            <img src="/media/{{news.Img1}}" alt="Image" class="img-fluid" style="border-radius:20px ;">
+          </p>  
+          <h1 class="mb-4">
+            {{news.Headline}}
+          </h1>
+          
+          <p class="text-justify h5" style="font-size:15px; line-height: 25px;">{{news.News_Disc}}</p>
+          
+          <div class="pt-4">
+                <a href=""><i class="ilike fas fa-heart ml-5">Like</i></a> <i onclick="getfocus()" class="ilike fas fa-comment ml-3">Comment</i>
+              <hr>
+              </div>
+                <div class="pt-4">
+                  <div class="section-title">
+                    <h2 class="mb-5">6 Comments</h2>
+                  </div>
+                  <ul class="comment-list">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_1.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>Rushikesh Bankar</h3>
+                        <div class="meta">June 10 2022</div>
+                        <p>ohh really shocking!!!</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+                    </li>
+    
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_1.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>Tushar Belkar</h3>
+                        <div class="meta">July 18, 2022 at 2:21pm</div>
+                        <p>Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+    
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="images/person_1.jpg" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>Shalvi Mudiraj</h3>
+                            <div class="meta">June 9, 2022 at 4:30pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
+    
+    
+                         <!-- <ul class="children">
+                            <li class="comment">
+                              <div class="vcard bio">
+                                <img src="images/person_1.jpg" alt="Image placeholder">
+                              </div>
+                              <div class="comment-body">
+                                <h3>Jean Doe</h3>
+                                <div class="meta">January 9, 2018 at 2:21pm</div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p><a href="#" class="reply">Reply</a></p>
+                              </div>
+    
+                                <ul class="children">
+                                  <li class="comment">
+                                    <div class="vcard bio">
+                                      <img src="images/person_1.jpg" alt="Image placeholder">
+                                    </div>
+                                    <div class="comment-body">
+                                      <h3>Jean Doe</h3>
+                                      <div class="meta">January 9, 2018 at 2:21pm</div>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                      <p><a href="#" class="reply">Reply</a></p>
+                                    </div>
+                                  </li>
+                                </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>-->
+                    </li>
+    
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_1.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>Pradeep Kendre</h3>
+                        <div class="meta">July 10 2022</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- END comment-list -->
+                  
+                  <div class="comment-form-wrap pt-5">
+                    <div class="section-title">
+                      <h2 class="mb-1">Leave a comment</h2>
+                    </div>
+                    <form action="#" class="p-5 bg-light">
+                      <div class="form-group">
+                        <label for="message" style="font-weight: bolder; color:black; font-size:1rem">Wright your Comment:</label>
+                        <textarea name="msg" id="msg" cols="30" rows="10" class="form-control" style="height:100px; width:400px;"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Post Comment" class="btn btn-primary py-3">
+                      </div>
+    
+                    </form>
+                  </div>
+                </div>
+        </div>
+
+
+        <div class="col-lg-3 ml-auto">
+          <div class="section-title">
+            <h2>Popular Posts</h2>
+          </div>
+
+          <div class="trend-entry d-flex">
+            <div class="number align-self-start">01</div>
+            <div class="trend-contents">
+              <h2><a href="https://youtu.be/1zxYV9oZArc">Monkeypox: Third Case Of Virus Confirmed In Kerala; Patient Currently Undergoing Treatment</a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">RePublic-Tv</a> in <a href="https://youtu.be/1zxYV9oZArc">News</a></span>
+                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trend-entry d-flex">
+            <div class="number align-self-start">02</div>
+            <div class="trend-contents">
+              <h2><a href="https://youtu.be/7b_KcFw1IYA">Sidhu Moose Wala को गोली मारने के बाद गुर्गों ने किया था Lawrence Bishnoi को फोन, जानें पूरा मामला</a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">News24</a> in <a href="https://youtu.be/7b_KcFw1IYA">News</a></span>
+                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trend-entry d-flex">
+            <div class="number align-self-start">03</div>
+            <div class="trend-contents">
+              <h2><a href="https://youtu.be/oqlw-qgq-NA">New President of India 2022 | Draupadi Murmu भारताच्या नव्या राष्ट्रपती-</a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">Tv9 Marathi</a> in <a href="https://youtu.be/oqlw-qgq-NA">News</a></span>
+                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trend-entry d-flex pl-0">
+            <div class="number align-self-start">04</div>
+            <div class="trend-contents">
+              <h2><a href="https://youtu.be/b9hBKXNCWEI">4 मिनिट 24 हेडलाईन्स | 4 Minutes 24 Headlines | 3 PM | 19 july 2022 -TV9</a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">Tv9-Marathi</a> in <a href="https://youtu.be/b9hBKXNCWEI">News</a></span>
+                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+          
+          <p>
+            <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
+          </p>
+        </div>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <script>
+    function getfocus() {
+      document.getElementById("msg").focus();
+    }
+     </script>
+<!--News details information container end-->
+{% endblock %}

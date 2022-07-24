@@ -1,0 +1,92 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia Videos {% endblock %}
+
+{% block body %}
+
+<!--videos content-->
+{% load static %}
+  <div class="container">
+  <div class="row bg-light">
+      <div id="row mb-4">
+          <h1 style="padding-left:50px;">Videos :</h1>
+      </div>
+    </div>
+    {% load static %}
+    <div class="site-section" style="margin-top: -50px;">
+        <div class="container">
+          <div class="mb-4">
+          <form action="#" class="search-form d-inline-block">
+    
+            <div class="d-flex">
+              <input type="Text" class="form-control" style="width: 300px;" placeholder="Enter Keyword...">
+              <button type="submit" class="btn btn-secondary" ><i class="fas fa-search" style="font-size:22px;"></i></button>
+            </div>
+          </form>
+        </div>
+          <div class="row ml-2">
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="width: 18rem;">
+                <iframe class="embed-responsive-item" src="https://youtube.com/embed/uJ6WU-u4i3w" allowfullscreen></iframe>
+                <div class="card-body">
+                  <p class="card-text section-title">Mehendi Wale Haath |Guru Randhawa Sanjana Sanghi |Sayeed Q Sachet-Parampara Arvindr |Bhushan Kumar.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="width: 18rem;">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/watch?v=sZ6w7fLTuTY" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                  <p class="card-text section-title">1 BEAT Mashup - 90's Bollywood - SINGOFF | Singh's Unplugged (Ft. Gurashish Singh, Kuhu)|Cover.
+				  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text section-title">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text section-title">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/watch?v=yjPohmbHt4o" allowfullscreen></iframe>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text section-title">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="custom-pagination list-unstyled">
+                <li><a href="#">1</a></li>
+                <li class="text-danger h5 active ">2</li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--end videos content-->
+  {% endblock %}

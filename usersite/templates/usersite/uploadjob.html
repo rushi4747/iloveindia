@@ -1,0 +1,106 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} job detail {% endblock %}
+
+{% block body %}
+<!--main-->
+{% load static %}
+{% if messages %}
+<script>
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+</script>
+{% for message in messages %}
+{% if message.tags %}
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body" style="color: black;">
+          <h2 style="color:rgb(0, 112, 0);">{{ request.session.Username }} {{ message }} <i class="fas fa-check"></i></h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}<!--end code for success message-->
+<div class="container">
+  <div class="row bg-light">
+    <div id="row mb-4">
+      <h1 style="padding-left:50px">Upload your job detail for job portal</h1>
+    </div><br>
+  </div>
+      <br>
+  <div class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mt-5 mb-4">
+                <form method="post" action="uploadjob" class="form-section d-inline-block was-validated">{% csrf_token %}      
+                    <div class="row" style="margin-top:-35px ;">
+                        <div class="col-md-5 form-group">
+                            <label for="fname" class="h5">Company Name :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <input type="text" name="cname" id="cname" title="only leters are allowd" class="form-control form-control-lg" required>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-5 form-group">
+                            <label for="fname" class="h5">Date :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <input type="date" name="cdate" class="form-control form-control-lg" title="select date" required>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-5 form-group">
+                            <label for="fname" class="h5">Job Discription :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <textarea name="cdisc" id="disc" cols="30" rows="10" class="form-control" style="height:100px; width:400px;color: blue;" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-5 form-group">
+                            <label for="fname" class="h5">Company_Email :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <input type="email" name="cemail" class="form-control form-control-lg" title="enter proper email id" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-md-5 form-group">
+                            <label for="fname" class="h5">Mobile No :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <input type="text" name="cmob" class="form-control form-control-lg" title="enter 10 digit mobile no" pattern="(0/91)?[7-9][0-9]{9}" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-md-5 form-group">
+                            <label for="fname" class="h5">Link :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <input type="text" name="clink" class="form-control form-control-lg" title="Enter link of job" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="user" value="Upload" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!--end main-->

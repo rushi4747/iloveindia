@@ -1,0 +1,102 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia News {% endblock %}
+
+{% block body %}
+
+<!--main-->
+{% load static %}
+
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="section-title">
+            <span class="caption d-block larg">Categories</span>
+            <h2>Daily News</h2>
+          </div>
+          {% for i in newsinfo|slice:"0:" %}
+          <div class="post-entry-2 d-flex">
+            <div class="thumbnail order-md-2 mr-1" style="box-shadow:2px 2px 3px #000000 ; background-image: url('/media/{{i.Img1}}')"></div>
+            <div class="contents order-md-1 pl-0">
+              <h2><a href="newsdetail{{i.id}}" style="font-style: italic;">{{i.Headline}}</a></h2>
+              <p class="mb-3">{{i.News_Disc|slice:150}}</p>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                <span class="date-read">{{i.ndate}} <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="col-lg-3">
+          <div class="section-title">
+            <h2>Popular Posts</h2>
+          </div>
+
+          <div class="trend-entry d-flex">
+            <div class="number align-self-start" style="font-weight: bold; font-style: italic;">01</div>
+            <div class="trend-contents">
+              <h2><a href="https://www.loksatta.com/career-vrutantta/cbse-12th-result-2022-declared-how-to-check-download-scorecard-pvp-97-3034329">CBSE 12th Result 2022 : सीबीएसई बोर्डाचा बारावीचा निकाल जाहीर; ९२.७१ टक्के विद्यार्थी उत्तीर्ण</a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">लोकसत्ता ऑनलाइन</a> in <a href="https://www.loksatta.com/career-vrutantta/cbse-12th-result-2022-declared-how-to-check-download-scorecard-pvp-97-3034329/">News</a></span>
+                <span class="date-read">July 22, 2022 12:06:21 pm <span class="mx-1">&bullet;</span> 3 min ago read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trend-entry d-flex">
+            <div class="number align-self-start"  >02</div>
+            <div class="trend-contents">
+              <h2><a href="#">Please Click Here To Follow</a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">Rushi Pathare</a> in <a href="https://www.instagram.com/rushikesh44747/">Instagram</a>  </a> or <a href="https://www.facebook.com/rushikesh.pathare/">Facebook</a></span>
+                <span class="date-read">July 22, 2022 04:12:54 pm <span class="mx-1">&bullet;</span> 3 min ago read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trend-entry d-flex">
+            <div class="number align-self-start">03</div>
+            <div class="trend-contents">
+              <h2><a href="http://chakali.blogspot.com/">घरच्या घरी बनवा नवनवीन रेसिपी </a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">चकली</a> in <a href="http://chakali.blogspot.com/">News</a></span>
+                <span class="date-read">June 18, 2022 10:07:34 pm <span class="mx-1">&bullet;</span> 3 min ago read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trend-entry d-flex pl-0">
+            <div class="number align-self-start">04</div>
+            <div class="trend-contents">
+              <h2><a href="https://www.lokmat.com/topics/science/page/2/">वैज्ञानिक बातम्या पहा इथे </a></h2>
+              <div class="post-meta">
+                <span class="d-block"><a href="#">Lokmat</a> in <a href="https://www.lokmat.com/topics/science/page/1/">News</a></span>
+                <span class="date-read">July 22, 2022 03:23:00 pm <span class="mx-1">&bullet;</span> 3 min ago read <span class="icon-star2"></span></span>
+              </div>
+            </div>
+          </div>
+          
+          <p>
+            <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="custom-pagination list-unstyled">
+            <li><a href="#">1</a></li>
+            <li class="text-danger h5 active ">2</li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+<!--end main-->

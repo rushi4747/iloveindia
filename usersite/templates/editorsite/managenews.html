@@ -1,0 +1,154 @@
+{% extends 'editorsite/editorbasic.html' %}
+
+{% block title %} ILoveIndia Manage News {% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+    <div class="row bg-light">
+        <div id="row mb-4">
+            <h1 style="padding-left:50px; color:black;">News Management <i class="fas fa-newspaper" style="color:black; font-size:30px;"></i></h1>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div class="bg-light">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <button class="btn btn-secondary ml-3 mt-2" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Upload News
+            </button>
+            <button class="btn btn-secondary ml-3 mt-2 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Manage News
+            </button>
+            <div id="accordion" class="mt-3">
+              <div class="card"><!--upload news container-->
+                {% if show %}
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  {% else %}
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  {% endif %}
+                  <div class="card-body" style="color:black;">
+                    <div class="site-section bg-light">
+                      <div class="container">
+                        <div class="row">
+                        <div class="col-lg-12">
+                          <form method="post" action="managenews" class="form-section d-inline-block was-validated" enctype="multipart/form-data">{% csrf_token %}
+                          
+                          <div class="row" style="margin-top:-35px ;">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">News Headline :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="text" name="nheadline" id="lname" class="form-control form-control-lg">
+                            </div>
+                          </div>
+                          <div class="row mt-1">
+                            <div class="col-md-5 form-group">
+                              <label for="fname" class="h5">News Image :<label>
+                            </div>
+                            <div class="col-md-5 form-group">
+                              <input type="file" name="nimg" class="form-control form-control-lg" title="select image for news">
+                            </div>
+                          </div>
+                          
+                              <div class="row mt-1">
+                                    <div class="col-md-5 form-group">
+                                      <label for="fname" class="h5">News Discription :<label>
+                                    </div>
+                                    <div class="col-md-5 form-group">
+                                        <textarea name="ndisc" id="disc" cols="30" rows="10" class="form-control" style="height:100px; width:400px;color: blue;"></textarea>
+                                    </div>
+                              </div>
+                          
+                              <div class="row">
+                                      <div class="col-12">
+                                          <input type="submit" name="upload" value="Upload" class="btn btn-primary py-3 px-5">
+                                      </div>
+                              </div>
+                            </form>
+                          </div>
+                          </div>
+                          </div>
+                          </div><!--upload news end-->
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card"><!--manage news container-->
+                  <div id="collapseTwo" class="collapse {% if show %}{{show}}{% endif %}" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body" style="color:black;">
+                      <div class="site-section bg-light">
+                      <div class="container" style="margin-top:-35px;">
+                        <div class="row">
+                        <div class="col-lg-12">
+                          <form method="post" action="managenews" class="form-section d-inline-block was-validated">{% csrf_token %}
+                            <div class="row" style="color: black;">
+                                <div class="col-md-6 form-group">
+                                    <label for="sdate" class="h5">Start Date</label>
+                                    <input type="date" id="sdate" name="sdate"  class="form-control form-control-lg" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                
+                                    <label for="edate" class="h5">End Date</label>
+                                    <input type="date" id="edate" name="edate" class="form-control form-control-lg" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                  <div class="col-12">
+                                      <input type="submit" name="user" value="Search" class="btn btn-primary py-3 px-5">
+                                  </div>
+                                </div>
+                            </div>
+                          </form>
+                          </div>
+                          </div>
+                          </div>
+
+                          <table class="table mt-3">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Headline</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for i in sresult %}
+                              <tr>
+                                <th scope="row">{{0}}{{forloop.counter}}</th>
+                                <td>{{i.Headline}}</td>
+                                <td><a href="editnews"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="deletenews{{i.id}}"><i class="fas fa-trash"></i></a></td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                          </div><!--manage news end-->
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+<script>
+  var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("sdate").setAttribute("max", today);
+document.getElementById("edate").setAttribute("max", today);
+</script>
+{% endblock %}

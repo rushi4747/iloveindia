@@ -1,0 +1,116 @@
+{% extends 'adminsite/adminbasic.html' %}
+
+{% block title %} ILoveIndia Observe Editor {% endblock %}
+
+{% block body %}
+{% load static %}
+<!--code for show success message-->
+{% if messages %}
+<script>
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+{% for message in messages %}
+{% if message.tags %}
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body" style="color: black;">
+          <h2 style="color:rgb(0, 112, 0);">{{ request.session.adusername }} {{ message }} <i class="fas fa-check h2" style="color:rgb(0, 112, 0);"></i></h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}<!--end code for success message-->
+
+<div class="container">
+  <div class="row bg-light">
+      <div id="row mb-4">
+          <h1 style="padding-left:50px; color:black;">Editor Observetion <i class="fas fa-bell"  style="color:black; font-size:30px;"></i></h1>
+      </div>
+      <br>
+  </div>
+  <br>
+  <div class="bg-light">
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+              <div class="card"><!--manage feedback container-->
+                  <div class="card-body" style="color:black;">
+                    <div class="site-section bg-light">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Notifications</th>
+                          <th scope="col">Section</th>
+                          <th scope="col">View</th>
+                          <th scope="col">Reply</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Coronavirus in India: 389 linked to Tablighi meet test positive, number rising</td>
+                          <td>News</td>
+                          <td><i class="fas fa-eye"></i></td>
+                          <td><i class="fas fa-reply" data-toggle="modal" data-target="#myModal"></i></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>कोरोना संकट पर PM मोदी का सभी मुख्यमंत्रियों को आश्वासन- मिलकर लड़ेंगे</td>
+                          <td>News</td>
+                          <td><i class="fas fa-eye"></i></td>
+                          <td><i class="fas fa-reply" data-toggle="modal" data-target="#myModal"></i></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>कोरोना: US की वो गलतियां जिनसे हो सकती हैं 2 लाख लोगों की मौत</td>
+                          <td>News</td>
+                          <td><i class="fas fa-eye"></i></td>
+                          <td><i class="fas fa-reply" data-toggle="modal" data-target="#myModal"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div><!--manage news end-->
+                  </div>
+              </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<!-- modal for replay to Editor -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content" style="color:black;">
+        <div class="modal-header">
+            <h4 class="modal-title">Reply To Editor</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="row mt-1">
+                <div class="col-md-3 form-group">
+                  <label for="fname" class="h5">Message :<label>
+                </div>
+                <div class="col-md-7 form-group">
+                    <textarea name="disc" id="disc" cols="20" rows="10" class="form-control" style="height:100px; border:1px solid greenyellow"></textarea>
+                </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"><i class="fas fa-paper-plane" style="color: white;"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

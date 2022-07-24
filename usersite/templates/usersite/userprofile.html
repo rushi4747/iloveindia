@@ -1,0 +1,202 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia User Profile {% endblock %}
+
+{% block body %}
+
+<!--main-->
+{% load static %}
+  <div class="container">
+  <div class="row bg-light">
+      <div class="my-4 col-md-12 h3 text-uppercase">User Profile: {{userdetail.0.First_Name}} {{userdetail.0.Last_name}} <a href="logout" class="" style="float:right;">LogOut</a></div>
+      <br>
+  </div>
+    <br>
+    
+    <div class="card text-dark">
+      <img src="{%static 'imgs/ILoveIndia.jpg'%}" class="card-img" height="470px;" alt="...">
+      <div class="card-img-overlay" style="background:rgba(255, 255, 255, 0.8);">
+        first Name:
+        <h3 class="card-title">{{userdetail.0.First_Name}} {{userdetail.0.Last_name}}</h3><hr>
+        Age:
+        <h3 class="card-title">{{userdetail.0.Age}}</h3><hr>
+        Gender:
+        <h3 class="card-title">{{userdetail.0.Gender}}</h3><hr>
+        Mobile No:
+        <h3 class="card-title">+91 {{userdetail.0.Mobile_No}}</h3><hr>
+        Email:
+        <h3 class="card-title">{{userdetail.0.Email}}</h3><hr>
+      </div>
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Edit Profile
+              </button>
+            </h2>
+          </div>
+      
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <!--Edit User profile-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="upadateprofile" class="form-section d-inline-block was-validated">   {% csrf_token %}  
+                    <div class="row" style="margin-top:-35px ;">
+                        <div class="col-md-5 form-group">
+                          <label for="fname" class="h5">Name :<label>
+                        </div>
+                        <div class="col-md-5 form-group">
+                          <input type="text" name="name" value="{{userdetail.0.First_Name}}" id="lname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+                        </div>
+                    </div>
+                  
+                    <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Surname :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" value="{{userdetail.0.Last_name}}" name="surname" id="lname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Age :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" value="{{userdetail.0.Age}}" name="age" id="lname" class="form-control form-control-lg" pattern="[1-9]{2}" title="Enter Age!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Gender :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                          <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="user" value="male" checked> Male
+                          </label>
+                          <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="org" value="female"> Female
+                          </label>
+                        </div>
+                      </div>
+                      <div class="alert alert-success text-uppercase" style="line-height: 0rem;" role="alert">
+                        Gender: {{userdetail.0.Gender}}
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Mobile :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" value="{{userdetail.0.Mobile_No}}" name="mobile" id="lname" class="form-control form-control-lg" pattern="(0/91)?[7-9][0-9]{9}" title="only Digits are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Email :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" value="{{userdetail.0.Email}}" name="email" id="lname" class="form-control form-control-lg" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="only Email are allowed!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Username :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" value="{{userdetail.0.Username}}" name="username" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9_.-]+$" title="Enter valid Username!!!" required>
+                      </div>
+                  </div>
+            
+                  <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="user" value="Update Profile" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+              </form>
+            </div>
+            </div>
+            </div>
+            </div><!--Edit User Profile-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!--change accordion start here-->
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Change Password
+              </button>
+            </h2>
+          </div>
+      
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <!--Change Password-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="changepass" class="form-section d-inline-block was-validated">
+              
+                <div class="row" style="margin-top:-35px ;">
+                  <div class="col-md-5 form-group">
+                    <label for="fname" class="h5">Enter Old Password :<label>
+                  </div>
+                  <div class="col-md-5 form-group">
+                    <input type="text" name="password" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" title="Atleast 1 lowercase, 1 digit, 1 special charachter[@#$] are allowed!!!" required>
+                  </div>
+            </div>
+                <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">New Password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="password" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" title="Atleast 1 lowercase, 1 digit, 1 special charachter[@#$] are allowed!!!" required>
+                      </div>
+                </div>
+            
+                <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Confirm password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="password" name="cpassword" id="lname" class="form-control form-control-lg" pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$">
+                      </div>
+                </div>
+            
+                <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="user" value="Change Password" class="btn btn-primary py-3 px-5">
+                        </div>
+                </div>
+              </form>
+            </div>
+            </div>
+            </div>
+            </div><!--End Change Password-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><br clear="all">
+  <!--end main-->
+  {% endblock %}

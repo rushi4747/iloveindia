@@ -1,0 +1,181 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ILoveIndia Customer Profile {% endblock %}
+
+{% block body %}
+
+<!--main-->
+{% load static %}
+  <div class="container">
+    <div class="row bg-light">
+        <div class="my-4 col-md-12 h3 text-uppercase">{{userdetail.0.Business_Name}} <a href="logout" class="" style="float:right;">LogOut</a></div>
+        <br>
+    </div>
+      <br>
+    
+    <div class="card text-dark">
+      <img src="{%static 'imgs/ILoveIndia.jpg'%}" class="card-img" height="470px;" alt="...">
+      <div class="card-img-overlay" style="background:rgba(255, 255, 255, 0.8);">
+        Business Name:
+        <h3 class="card-title">{{userdetail.0.Business_Name}}</h3><hr>
+        Address:
+        <h3 class="card-title">{{userdetail.0.Address}}</h3><hr>
+        Mobile No:
+        <h3 class="card-title">+91 {{userdetail.0.Mobile_No}}</h3><hr>
+        Email:
+        <h3 class="card-title">{{userdetail.0.Email}}</h3><hr>
+      </div>
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Edit Profile
+              </button>
+            </h2>
+          </div>
+      
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <!--Edit User profile-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="updateprofile" class="form-section d-inline-block was-validated">   {% csrf_token %}                                                                                                                                                                                                                                                                                                                            
+                <div class="row" style="margin-top:-35px ;">
+                    <div class="col-md-5 form-group">
+                      <label for="cname" class="h5">Business Name :<label>
+                    </div>
+                    <div class="col-md-5 form-group">
+                      <input type="text" value="{{userdetail.0.Business_Name}}" name="bname" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9](\w+)*{2,10}" title="only letters are allowed" required>
+                    </div>
+                </div>
+        
+                <div class="row mt-1">
+                  <div class="col-md-5 form-group">
+                    <label for="address" class="h5">Address :<label>
+                  </div>
+                  <div class="col-md-5 form-group">
+                    <input type="text" value="{{userdetail.0.Address}}" name="address" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9](\w+)*{2,20}" title="only letters are allowed" required>
+                  </div>
+              </div>
+        
+              <div class="row mt-1">
+                  <div class="col-md-5 form-group">
+                    <label for="onername" class="h5">Customer Name :<label>
+                  </div>
+                  <div class="col-md-5 form-group">
+                    <input type="text" value="{{userdetail.0.Customer_Name}}" name="cname" id="lname" class="form-control form-control-lg" pattern="[a-zA-z]+ [a-z-A-z]+" title="Enter Age!!!" required>
+                  </div>
+              </div>
+        
+              <div class="row mt-1">
+                <div class="col-md-5 form-group">
+                  <label for="fname" class="h5">Mobile :<label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" value="{{userdetail.0.Mobile_No}}" name="mobile" id="lname" class="form-control form-control-lg" pattern="(0/91)?[7-9][0-9]{9}" title="only 10 Digits are allowed!!!" required>
+                </div>
+            </div>
+      
+            <div class="row mt-1">
+                <div class="col-md-5 form-group">
+                  <label for="fname" class="h5">Email :<label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" value="{{userdetail.0.Email}}" name="email" id="lname" class="form-control form-control-lg" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="only Email are allowed!!!" required>
+                </div>
+            </div>
+        
+              <div class="row mt-1">
+                  <div class="col-md-5 form-group">
+                    <label for="fname" class="h5">Username :<label>
+                  </div>
+                  <div class="col-md-5 form-group">
+                    <input type="text" value="{{userdetail.0.Password}}" name="username" id="lname" class="form-control form-control-lg" pattern="^[a-zA-Z0-9_.-]+$" title="Enter valid Username!!!" required>
+                  </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-12">
+                        <input type="submit" name="cust" value="Update Profile" class="btn btn-primary py-3 px-5">
+                    </div>
+                </div>
+          </form>
+            </div>
+            </div>
+            </div>
+            </div><!--Edit User Profile-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!--change accordion start here-->
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Change Password
+              </button>
+            </h2>
+          </div>
+      
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <!--Change Password-->
+            <div class="site-section bg-light">
+              <div class="container">
+                <div class="row">
+            <div class="col-lg-12">
+              <form method="post" action="changepass" class="form-section d-inline-block was-validated">
+              
+                <div class="row" style="margin-top:-35px ;">
+                  <div class="col-md-5 form-group">
+                    <label for="fname" class="h5">Enter Old Password :<label>
+                  </div>
+                  <div class="col-md-5 form-group">
+                    <input type="text" name="password" id="lname" class="form-control form-control-lg" pattern="[a-z]+[0-9]+[@#$]" title="Atleast 1 lowercase, 1 digit, 1 special charachter[@#$] are allowed!!!" required>
+                  </div>
+            </div>
+                <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">New Password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="password" id="lname" class="form-control form-control-lg" pattern="[a-z]+[0-9]+[@#$]" title="Atleast 1 lowercase, 1 digit, 1 special charachter[@#$] are allowed!!!" required>
+                      </div>
+                </div>
+            
+                <div class="row mt-1">
+                      <div class="col-md-5 form-group">
+                        <label for="fname" class="h5">Confirm password :<label>
+                      </div>
+                      <div class="col-md-5 form-group">
+                        <input type="text" name="cpassword" id="lname" class="form-control form-control-lg">
+                      </div>
+                </div>
+            
+                <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="user" value="Change password" class="btn btn-primary py-3 px-5">
+                        </div>
+                </div>
+              </form>
+            </div>
+            </div>
+            </div>
+            </div><!--Edit Change Password-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br clear="all">
+  <!--end main-->
+  {% endblock %}

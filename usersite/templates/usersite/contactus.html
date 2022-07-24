@@ -1,0 +1,63 @@
+{% extends 'usersite/basic.html' %}
+
+{% block title %} ContactUs {% endblock %}
+
+{% block body %}
+
+<!--start contact us div-->
+<div class="container">
+    <div class="row bg-light">
+        <div id="row mb-4">
+            <h1 style="padding-left:50px">Contact Us</h1>
+        </div>
+        <br>
+      </div>
+      <br>
+    <div class="site-section bg-light">
+    <div class="container">
+      <div class="row">
+<div class="col-lg-12">
+    <form method="post" class="form-section d-inline-block was-validated">{% csrf_token %}
+      
+          <div class="row">
+              <div class="col-md-6 form-group">
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+              </div>
+              <div class="col-md-6 form-group">
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control form-control-lg" pattern="[A-Za-z]{2,32}" title="only letters are allowed" required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 form-group">
+                  <label for="eaddress">Email Address</label>
+                  <input type="text" id="eaddress" class="form-control form-control-lg" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="only Email are allowed!!!" required>
+              </div>
+              <div class="col-md-6 form-group">
+                  <label for="tel">Contact Number</label>
+                  <input type="text" id="tel" class="form-control form-control-lg" pattern="(0/91)?[7-9][0-9]{9}" title="only Digits are allowed!!!" required>
+              </div>
+          </div>
+          <div class="row">
+            <label for="message" style="padding-left: 20px;">Message</label>
+              <div class="col-md-12 form-group">
+                  <textarea name="" id="message" class="" required></textarea>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+          </div>
+      
+    </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!--end contact us div-->
+ 
+{% endblock %}

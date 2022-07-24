@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="icon" href="{% static 'imgs/ILoveIndia logo.png'%}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'bootstrap/style/bootstrap.min.css'%}"/>
+  <link rel="stylesheet" href="{% static 'bootstrap/style/style.css'%}">
+  <link rel="stylesheet" href="{% static 'bootstrap/style/style1.css'%}">
+  <link rel="stylesheet" href="{% static 'bootstrap\web-fonts-with-css\css\fontawesome-all.min.css'%}">
+
+  <script src="{% static 'bootstrap/js/jquery.js'%}"></script>
+  <script src="{% static 'bootstrap/js\bootstrap.min.js'%}"></script>
+  <title>{% block title %} {% endblock %}</title>
+
+  <style>
+    
+
+  </style>
+</head>
+<body>
+  <!--start header-->
+  <div class="container">
+    <nav class="navbar navbar-light header-top">
+      <a href="/" class="site-logo">
+        <img src="{% static 'imgs/ILoveIndia logo.png'%}" alt="logo not loaded" style="width:150px;">
+      </a>
+<small class="mt-3 mr-auto site-logo1">The Digital Magazine</small>
+      <div class="col-12 col-lg-6 ml-auto d-flex">
+        <div class="ml-md-auto top-social d-none d-lg-inline-block">
+          <a href="https://www.instagram.com/explore/tags/iloveindia/?hl=en" class="d-inline-block p-3"><i class="fab fa-instagram icon" style="font-size:20px;"></i>
+            </a>
+            <a href="https://www.facebook.com/mybelovedindia/" class="d-inline-block p-3"><i class="fab fa-facebook icon" style="font-size:20px;"></i></a>
+            <a href="https://twitter.com/il0veindia?lang=en" class="d-inline-block p-3"><i class="fab fa-twitter-square icon" style="font-size:20px;"></i></a>
+        </div>
+        <form action="#" class="search-form d-inline-block">{% csrf_token %}
+
+          <div class="d-flex">
+            <input type="text" class="form-control" placeholder="Search...">
+            <button type="submit" class="btn btn-secondary" ><i class="fas fa-search" style="font-size:22px; text-shadow:2px 2px 4px #000000;"></i></button>
+          </div>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container-fluid header-second sticky-top">
+
+    <nav class="navbar navbar-expand-lg bg-white navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-5 navlink text-uppercase">
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="news">News</a>
+          </li>
+          <li class="nav-item dropdown active ml-3">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Information
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="jobportal">job Portal</a>
+              <a class="dropdown-item" href="place">Place</a>
+              <a class="dropdown-item" href="education">Educational</a>
+            </div>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="videos">Video</a>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="entertainment">Entertainment</a>
+          </li>
+          {% if request.session.role  == 'cust' %}
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="giveadd">Give Advertisement</a>
+          </li>
+          {% endif %}
+
+          {% if request.session.role == 'org' %}
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="giveadd">Give Advertisement</a>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="uploadjob">Upload Job Detail</a>
+          </li>
+          {% endif %}
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="about">About Us</a>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          {% if request.session.Username == None %}
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="registeruser">Registration</a>
+          </li>
+          <li class="nav-item active ml-3">
+            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Login</a>
+          </li>
+          {% endif %}
+          {% if request.session.Username != None %}
+          <li class="nav-item dropdown active ml-3">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ request.session.Username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="userprofile">Profile</a>
+              <a class="dropdown-item" href="logout">LogOut</a>
+            </div>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!--end header-->
+<br clear="all"/>
+
+{% block body %}
+
+{% endblock %}
+
+<br>
+<br clear="all"> 
+  <!--start of footer-->
+  <div class="shadow-none p-3 mb-5 bg-light rounded row">
+    <div class="col-sm-6 ml-3">
+        <h5>IloveIndia The Digital Magazine</h5>
+       <p class="font-weight-bold">This website can also get WhatsApp number of users for the join to the WhatsApp and get daily updates.
+         for the connect with us register your whatsapp no bellow:
+       </p>
+    </div>
+    <form action="getuser" method="POST">{% csrf_token %}
+    <div class="col-sm-5 search-form">
+      <div class="col-sm-5 search-form">
+        <div class="row-12">
+          <input type="text" name="name" class="form-control" placeholder="Enter Your Name..." required>
+          <input type="text" name="mobile" class="form-control" placeholder="Enter Your Whats App No..." required>
+          <button type="submit" class="btn btn-secondary ml-3 mt-1" ><i class="fas fa-paper-plane" style="font-size:27px;"></i></button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="copyright">
+              <p class="">
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Project is made with <i class="fas fa-heart" style="font-size: 20px; color:darkred;"></i> by Rushikesh Pathare (IBMRD College Ahmednagar).
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of footer-->
+  <!--start of modal-->
+  <div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="color:black;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user"></i>Login Here</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="logincheck">{% csrf_token %}
+              <h5 class="modal-title" id="exampleModalLabel">Select Role:</h5>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="user" value="user" checked> User
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="org" value="org" > Organization
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="cust" value="cust"> Customer
+                </label>
+              </div>
+              <div class="form-label-group mt-4">
+                <input type="text" name="uname" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+                <label for="inputEmail">Username</label>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+              </div>
+              <div class="form-label-group">
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+              <small class="form-text text-muted">If you dont have account then Register first...!<a href="registeruser">Register Here</a></small>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end of modal-->
+</body>
+</html>
